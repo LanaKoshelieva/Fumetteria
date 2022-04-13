@@ -1,8 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>register</ion-title>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content>
   
@@ -21,8 +22,19 @@
           <h6>Benvenuti</h6>
         </ion-col>
       </ion-row>
+      
+      <ion-row class="regist-row">
+        <ion-col>
+          <ion-item class="ion-text-start">
+            <ion-label class="text-call" for="name" position="floating">nome e cognome</ion-label>
+            <ion-input type="text" id="name" name="name"></ion-input>
+            <ion-icon slot="end" name="person-add"></ion-icon>
+          </ion-item>
+          <p class="text-under">Inserisci nome e cognome</p>          
+        </ion-col>
+      </ion-row>
 
-      <ion-row class="login-row">
+      <ion-row class="regist-row">
         <ion-col>
           <ion-item class="ion-text-start">
             <ion-label class="text-call" for="uname" position="floating">username</ion-label>
@@ -32,10 +44,8 @@
           <p class="text-under">Inserisci username</p>          
         </ion-col>
       </ion-row>
-      <!-- <ion-label class="ion-padding" position="stacked" style="color:#979797; font-size: small;">Inserisci password</ion-label> -->
 
-
-      <ion-row class="login-row">
+      <ion-row class="regist-row">
         <ion-col>          
           <ion-item class="ion-text-start">
             <ion-label class="text-call" for="user-pass" position="floating">password</ion-label>
@@ -46,9 +56,9 @@
         </ion-col>
       </ion-row>
 
-      <ion-row class="login-row">
+      <ion-row class="regist-row">
           <ion-col >
-            <ion-button class="ion-float-right my-button">LOGIN</ion-button>
+            <ion-button class="ion-float-right my-button">REGISTRATI</ion-button>
           </ion-col>
       </ion-row>
         
