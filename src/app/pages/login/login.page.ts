@@ -12,7 +12,7 @@ export class LoginPage implements OnInit {
   password = "tua password";
   logoSource = 'assets/logo_devskill.png';
   isButtonDisabled: boolean = true;
-  onButtonMouseOver() {
+  onLogoMouseOver() {
     alert ("Don't touch me")
   }
 
