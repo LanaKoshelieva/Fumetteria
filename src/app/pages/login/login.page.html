@@ -12,20 +12,20 @@
 
       <ion-row class="logo-row">
         <ion-col class="ion-text-center">
-          <img src="assets/logo_devskill.png" alt="logo">
+          <img (mouseover) = "onButtonMouseOver()" [src]="logoSource" alt="logo">
         </ion-col>
       </ion-row>
 
       <ion-row class="welcome-row">
         <ion-col class="ion-text-center">
-          <h6>Benvenuti</h6>
+          <h6>{{title}}</h6>
         </ion-col>
       </ion-row>
 
       <ion-row class="login-row">
         <ion-col>
           <ion-item class="ion-text-start">
-            <ion-label class="text-call" for="uname" position="floating">username</ion-label>
+            <ion-label class="text-call" for="uname" position="floating">{{userName}}</ion-label>
             <ion-input type="text" id="uname" name="uname"></ion-input>
             <ion-icon slot="end" name="mail-sharp"></ion-icon>
           </ion-item>
@@ -38,7 +38,7 @@
       <ion-row class="login-row">
         <ion-col>          
           <ion-item class="ion-text-start">
-            <ion-label class="text-call" for="user-pass" position="floating">password</ion-label>
+            <ion-label class="text-call" for="user-pass" position="floating">{{password}}</ion-label>
             <ion-input type="password" id="user-pass" name="user-pass"></ion-input>
             <ion-icon slot="end" name="lock-closed"></ion-icon>
           </ion-item>
@@ -48,7 +48,7 @@
 
       <ion-row class="login-row">
           <ion-col >
-            <ion-button class="ion-float-right my-button">LOGIN</ion-button>
+            <ion-button [disabled] = "isButtonDisabled"class="ion-float-right my-button">LOGIN</ion-button>
           </ion-col>
       </ion-row>
         
