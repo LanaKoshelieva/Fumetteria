@@ -7,27 +7,16 @@
 <ion-content>
   
 
-  <form class="center">
+  <form  [formGroup]="loginForm" (ngSubmit)="mySubmit" class="center">
     <ion-grid class="set-grid">
 
-      <ion-row class="logo-row">
-        <ion-col class="ion-text-center">
-          <!-- <img (mouseover) = "onLogoMouseOver()" [src]="logoSource" alt="logo"> -->
-          <img [src]="logoSource" alt="logo">
-        </ion-col>
-      </ion-row>
-
-      <ion-row class="welcome-row">
-        <ion-col class="ion-text-center">
-          <h6>{{title}}</h6>
-        </ion-col>
-      </ion-row>
+      <app-title-devskill text="Entra nel mondo di DevSkill"></app-title-devskill>
 
       <ion-row class="login-row">
         <ion-col>
           <ion-item class="ion-text-start">
             <ion-label class="text-call" for="uname" position="floating">{{userName}}</ion-label>
-            <ion-input [(ngModel)] ="username" (ngModelChange)="control()" type="text" id="uname" name="uname"></ion-input>
+            <ion-input formControlName="nome" [(ngModel)] ="username" (ngModelChange)="control()" type="text" id="uname" name="uname"></ion-input>
             <ion-icon slot="end" name="mail-sharp"></ion-icon>
           </ion-item>
           <p class="text-under">Inserisci username</p>          
@@ -38,17 +27,25 @@
         <ion-col>          
           <ion-item class="ion-text-start">
             <ion-label class="text-call" for="user-pass" position="floating">{{userPass}}</ion-label>
-            <ion-input [(ngModel)] ="password" (ngModelChange)="control()" type="password" id="user-pass" name="user-pass"></ion-input>
+            <ion-input formControlName="password" [(ngModel)] ="password" (ngModelChange)="control()" type="password" id="user-pass" name="user-pass"></ion-input>
             <ion-icon slot="end" name="lock-closed"></ion-icon>
           </ion-item>
           <p class="text-under">Inserisci password</p>          
         </ion-col>
       </ion-row>
-
-      <ion-row class="login-row">
+<!-- 
+      <ion-row class="button-row">
           <ion-col >
             <ion-button (click)="click()" [disabled] = "isButtonDisabled" class="ion-float-right my-button">LOGIN</ion-button>
           </ion-col>
+      </ion-row> -->
+      <ion-row class="button-row">
+        <ion-col >
+          <app-button-devskill link="/register" text="REGISTRATI"> </app-button-devskill>
+        </ion-col>
+        <ion-col >
+          <app-button-devskill [disabled]="!loginForm.valid" text="LOGIN"></app-button-devskill>
+        </ion-col>
       </ion-row>
         
     </ion-grid>

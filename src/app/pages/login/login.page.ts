@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,36 +8,49 @@ import { Component, OnInit } from '@angular/core';
   
 })
 export class LoginPage implements OnInit {
-
-  title = "Entra nel mondo di DevSkill";
+// @Input ()
   userName = "tuo username";
   userPass = "tua password";
-  logoSource = 'assets/logo_devskill.png';
   isButtonDisabled: boolean = true;
   username:string;
   password:string;
+
+
 
   // onLogoMouseOver() {
   //   alert ("Don't touch me");
   // }  
   
-  control () {
-    console.log("control", this.username, this.password );
-    if (this.username == "" || this.username == undefined || this.password == undefined || this.password == "") {
-      this.isButtonDisabled = true;
-    } else {
-      this.isButtonDisabled = false;
-    }
-  }
+  // control () {
+  //   console.log("control", this.username, this.password );
+  //   if (this.username == "" || this.username == undefined || this.password == undefined || this.password == "") {
+  //     this.isButtonDisabled = true;
+  //   } else {
+  //     this.isButtonDisabled = false;
+  //   }
+  // }
 
   click () {
     if(this.username.includes('&')|| this.username.includes('_')) {
-    alert("L’username non puo contenere catteri '_' e '&' ");
+    alert("L’username non puo contenere caratteri '_' e '&' ");
   }
 
 }
 
-  constructor() { }
+loginForm;
+
+constructor(private fb:FormBuilder) 
+{
+  this.loginForm = this.fb.group 
+  ({
+    nome: ['', [Validators.email, Validators.required]],
+    password: ['', [Validators.required, Validators.pattern]],
+  })
+}
+
+mySubmit() {
+  console.log(this.loginForm)
+}
 
   ngOnInit() {
   }

@@ -7,27 +7,16 @@
 
 <ion-content>
   
-
-  <form>
+  <form [formGroup]="registerForm" >
     <ion-grid class="set-grid">
 
-      <ion-row class="logo-row">
-        <ion-col class="ion-text-center">
-          <img src="assets/logo_devskill.png" alt="logo">
-        </ion-col>
-      </ion-row>
-
-      <ion-row class="welcome-row">
-        <ion-col class="ion-text-center">
-          <h6>Benvenuti</h6>
-        </ion-col>
-      </ion-row>
+      <app-title-devskill text="Registrati nel mondo di DevSkill"></app-title-devskill>
       
       <ion-row class="regist-row">
         <ion-col>
           <ion-item class="ion-text-start">
             <ion-label class="text-call" for="name" position="floating">nome e cognome</ion-label>
-            <ion-input type="text" id="name" name="name"></ion-input>
+            <ion-input type="text" formControlName="nome" id="name" name="name"></ion-input>
             <ion-icon slot="end" name="person-add"></ion-icon>
           </ion-item>
           <p class="text-under">Inserisci nome e cognome</p>          
@@ -38,10 +27,10 @@
         <ion-col>
           <ion-item class="ion-text-start">
             <ion-label class="text-call" for="uname" position="floating">username</ion-label>
-            <ion-input type="text" id="uname" name="uname"></ion-input>
+            <ion-input type="text" formControlName="username" id="uname" name="uname"></ion-input>
             <ion-icon slot="end" name="mail-sharp"></ion-icon>
           </ion-item>
-          <p class="text-under">Inserisci username</p>          
+          <p class="text-under">Inserisci e-mail</p>          
         </ion-col>
       </ion-row>
 
@@ -49,18 +38,28 @@
         <ion-col>          
           <ion-item class="ion-text-start">
             <ion-label class="text-call" for="user-pass" position="floating">password</ion-label>
-            <ion-input type="password" id="user-pass" name="user-pass"></ion-input>
+            <ion-input type="password" formControlName="password" id="user-pass" name="user-pass"></ion-input>
             <ion-icon slot="end" name="lock-closed"></ion-icon>
           </ion-item>
           <p class="text-under">Inserisci password</p>          
         </ion-col>
       </ion-row>
 
-      <ion-row class="regist-row">
+      <!-- <ion-row class="button-row">
           <ion-col >
             <ion-button class="ion-float-right my-button">REGISTRATI</ion-button>
           </ion-col>
+      </ion-row> -->
+      <ion-row class="button-row">
+        <ion-col >
+          <app-button-devskill link="/login" text="LOGIN"> </app-button-devskill>
+        </ion-col>
+        <ion-col >
+          <app-button-devskill text="REGISTRATI"> </app-button-devskill>
+        </ion-col>
+        
       </ion-row>
+     
         
     </ion-grid>
   </form>
