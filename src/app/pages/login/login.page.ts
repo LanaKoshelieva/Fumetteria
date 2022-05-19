@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { UserDTO } from 'src/app/model/package/dto/user-dto';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +10,77 @@ import { FormBuilder, Validators } from '@angular/forms';
   
 })
 export class LoginPage implements OnInit {
-// @Input ()
+
   userName = "tuo username";
   userPass = "tua password";
   isButtonDisabled: boolean = true;
-  username:string;
+
+  mail:string;
   password:string;
+
+  click () 
+  {
+    if(this.mail.includes('&')|| this.mail.includes('_')) {
+    alert("L’username non puo contenere caratteri '_' e '&' ");
+    }
+
+  }
+
+  login()
+  {
+    console.log(this.mail, this.password)
+    this.loginservice.login(this.mail, this.password).subscribe(response=>
+      {
+        const utente: UserDTO = response;
+        console.log(utente)
+      });
+  }
+
+  loginForm;
+
+  constructor(private fb:FormBuilder, private loginservice:LoginService) 
+  {
+    this.loginForm = this.fb.group 
+    ({
+      nome: ['', [Validators.email, Validators.required]],
+      password: ['', [Validators.required, Validators.pattern, Validators.minLength(4)]],
+    })
+  }
+
+  control () {
+    console.log("control", this.mail, this.password );
+    if (this.mail == "" || this.mail == undefined || this.password == undefined || this.password == "") {
+      this.isButtonDisabled = true;
+    } else {
+      this.isButtonDisabled = false;
+    }
+  }
+
+
+  mySubmit() {
+    console.log(this.loginForm)
+  }
+
+    ngOnInit() {
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -29,30 +96,3 @@ export class LoginPage implements OnInit {
   //     this.isButtonDisabled = false;
   //   }
   // }
-
-  click () {
-    if(this.username.includes('&')|| this.username.includes('_')) {
-    alert("L’username non puo contenere caratteri '_' e '&' ");
-  }
-
-}
-
-loginForm;
-
-constructor(private fb:FormBuilder) 
-{
-  this.loginForm = this.fb.group 
-  ({
-    nome: ['', [Validators.email, Validators.required]],
-    password: ['', [Validators.required, Validators.pattern]],
-  })
-}
-
-mySubmit() {
-  console.log(this.loginForm)
-}
-
-  ngOnInit() {
-  }
-
-}

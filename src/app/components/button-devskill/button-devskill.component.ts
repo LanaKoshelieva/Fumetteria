@@ -10,9 +10,10 @@ export class ButtonDevskillComponent implements OnInit {
   @Input() text:string;
   @Input() link:string
 
-  // isButtonDisabled: boolean = true;
+  @Input() isButtonDisabled: boolean = true;
   constructor() { }
 
   ngOnInit() {}
 
 }
+

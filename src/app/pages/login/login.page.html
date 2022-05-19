@@ -16,7 +16,7 @@
         <ion-col>
           <ion-item class="ion-text-start">
             <ion-label class="text-call" for="uname" position="floating">{{userName}}</ion-label>
-            <ion-input formControlName="nome" [(ngModel)] ="username" (ngModelChange)="control()" type="text" id="uname" name="uname"></ion-input>
+            <ion-input formControlName="nome" [(ngModel)] ="mail" (ngModelChange)="control()" type="text" id="uname" name="uname"></ion-input>
             <ion-icon slot="end" name="mail-sharp"></ion-icon>
           </ion-item>
           <p class="text-under">Inserisci username</p>          
@@ -33,18 +33,18 @@
           <p class="text-under">Inserisci password</p>          
         </ion-col>
       </ion-row>
-<!-- 
-      <ion-row class="button-row">
+
+      <!-- <ion-row class="button-row">
           <ion-col >
             <ion-button (click)="click()" [disabled] = "isButtonDisabled" class="ion-float-right my-button">LOGIN</ion-button>
           </ion-col>
       </ion-row> -->
       <ion-row class="button-row">
-        <ion-col >
+        <!-- <ion-col >
           <app-button-devskill link="/register" text="REGISTRATI"> </app-button-devskill>
-        </ion-col>
+        </ion-col> -->
         <ion-col >
-          <app-button-devskill [disabled]="!loginForm.valid" text="LOGIN"></app-button-devskill>
+          <app-button-devskill link="/home" (click)="login()" [isButtonDisabled]="!loginForm.valid" text="LOGIN"></app-button-devskill>
         </ion-col>
       </ion-row>
         
