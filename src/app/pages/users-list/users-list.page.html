@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-title>Lista utenti</ion-title>
+    </ion-buttons>     
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <app-user (click)="nascondi(item)" *ngFor="let item of users.list"  id="{{item.id}}" nome="{{item.name}}" cognome="{{item.surname}}" mail="{{item.email}}"></app-user>
+  </ion-list>
+</ion-content>

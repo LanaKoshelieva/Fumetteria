@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UserDTO } from 'src/app/model/package/dto/user-dto';
+import { UserDTO } from 'src/app/model/dto/user-dto';
 import { LoginService } from './login.service';
 
 @Component({

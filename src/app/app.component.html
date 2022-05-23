@@ -1,3 +1,14 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu contentId="main-content" type="overlay">
+    <ion-content>
+
+      <ion-list>
+        <ion-item></ion-item>
+        <ion-item [routerLink]="['login']">Home</ion-item>
+        <ion-item [routerLink]="['list']">Author's List</ion-item>
+        <ion-item [routerLink]="['users-list']">User's List</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>
