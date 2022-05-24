@@ -8,12 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class UserComponent implements OnInit {
 
   @Input() id:number;
-  @Input() nome:string;
-  @Input() cognome:string;
+  @Input() nomeUser:string;
+  @Input() cognomeUser:string;
   @Input() mail:string;
 
-  nomeUser:string;
-  cognomeUser:string;
+
 
   constructor() { }
 
